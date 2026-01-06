@@ -1,19 +1,51 @@
+import { useState } from 'react';
 import * as React from 'react';
 
 import styles from './App.css';
 
 export const App = () => {
+  const [newCatValue, setNewCatValue] = useState('');
+  const [cats, setCats] = useState([]);
+
   const loadCats = () => {
     fetch('/api/cats', { method: 'GET' })
       .then(data => data.json())
-      .then(data => console.log(data));
+      .then(data => {
+        setCats(data.cats);
+      });
+  };
+
+  const addCat = () => {
+    fetch('/api/cat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ cat: newCatValue }),
+    })
+      .then(() => {
+        setNewCatValue('');
+        loadCats();
+      });
   };
 
   return (
     <div>
       App
-      <button type="button" onClick={loadCats}>loadCats</button>
-      <h1 className={styles.title}>title</h1>
+      New cat:
+      <input
+        value={newCatValue}
+        onChange={e => setNewCatValue(e.target.value)}
+      />
+      <br />
+      <button type="button" onClick={addCat}>Add Cat</button>
+      {cats.map((cat, i) => (
+        <div key={i}>
+          <span className={styles.title}>
+            {cat}
+          </span>
+        </div>
+      ))}
     </div>
   );
 };
