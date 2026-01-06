@@ -35,6 +35,6 @@ module.exports = {
     ],
     /** Нужен для работы styled-components/macro */
     // 'babel-plugin-macros',
-    HAS_FAST_REFRESH && IS_DEV && 'react-refresh/babel',
+    // HAS_FAST_REFRESH && IS_DEV && 'react-refresh/babel',
   ].filter(Boolean),
 };
