@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { App } from './App';
+
 ReactDOM.render(
-  <div>hello new project</div>,
-  document.getElementById('root-template'),
+  <App />,
+  document.getElementById('root'),
 );

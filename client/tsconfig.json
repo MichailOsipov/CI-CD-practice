@@ -29,6 +29,7 @@
   "include": [
     "@mf-types",
     "src",
-    "mock-server/mockHost"
+    "mock-server/mockHost",
+    "Globals.d.ts"
   ]
 }
