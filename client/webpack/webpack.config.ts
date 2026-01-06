@@ -82,6 +82,11 @@ export default () => {
         ),
         port,
         server: 'http',
+        proxy: {
+          '/api/': {
+            target: 'http://localhost:2999',
+          }
+        }
     } : undefined,
     output: {
       assetModuleFilename: `static/media/[name]${CONTENT_HASH}[ext]`,
