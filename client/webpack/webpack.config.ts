@@ -85,7 +85,13 @@ export default () => {
         proxy: {
           '/api/': {
             target: 'http://localhost:2999',
-          }
+          },
+          '/oauth/': {
+            target: 'http://localhost:2999',
+          },
+          '/private/': {
+            target: 'http://localhost:2999',
+          },
         }
     } : undefined,
     output: {
