@@ -56,13 +56,7 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'unknown', 'internal', ['parent', 'sibling', 'index']],
-        pathGroups: [
-          {
-            pattern: '@vtb/**',
-            group: 'unknown',
-          },
-        ],
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
         pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
         alphabetize: {

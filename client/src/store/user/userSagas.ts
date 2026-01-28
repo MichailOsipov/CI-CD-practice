@@ -2,6 +2,9 @@ import { type AxiosResponse } from 'axios';
 import { channel } from 'redux-saga';
 import { call, put, race, take, takeLeading } from 'redux-saga/effects';
 
+import { fetchUserStatus, type UserStatusResponse } from '../../api/fetchUserStatus';
+import { authservice } from '../../services/authService';
+
 import {
   initUserSessionAction,
   initUserSessionErrorAction,
@@ -17,8 +20,6 @@ import {
   logoutUserStarted,
   logoutUserSuccess,
 } from './userSlice';
-import { fetchUserStatus, type UserStatusResponse } from '../../api/fetchUserStatus';
-import { authservice } from '../../services/authService';
 
 function* initUserSession () {
   try {

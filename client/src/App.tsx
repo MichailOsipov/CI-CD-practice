@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Login } from './pages/Login';
 import { MainPage } from './pages/MainPage';
 import { getIsAuthorized, initUserSessionAction } from './store/user';
-import { getIsUserSessionInitiated } from './store/user/selectors';
+import { getIsUserSessionInitiated } from './store/user/userSelectors';
 
 // import { RequestExample } from './pages/RequestExample';
 // import { SagaExample } from './pages/SagaExample';

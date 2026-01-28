@@ -12,4 +12,4 @@ export {
   getIsLoadingLogout,
   getIsLoadingUserStatus,
   getUserStatus,
-} from './selectors';
+} from './userSelectors';

@@ -1,7 +1,8 @@
-import { getAuthDataStorage, setAuthDataStorage } from './authStorage';
-import { http } from './httpService';
 import { fetchLoginUser } from '../api/fetchLoginUser';
 import { fetchLogoutUser } from '../api/fetchLogoutUser';
+
+import { getAuthDataStorage, setAuthDataStorage } from './authStorage';
+import { http } from './httpService';
 
 type InterceptorId = number;
 

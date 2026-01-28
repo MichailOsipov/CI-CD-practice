@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --config webpack/webpack.config.ts",
-    "start-app": "cross-env NODE_ENV=development BABEL_ENV=development webpack serve --config webpack/webpack.config.ts",
-    "mock-server": "cross-env MOCK_SERVER_INITIALLY_ENABLED=true nodemon mock-server/app.ts --config mock-server/nodemon.json",
+    "start": "cross-env NODE_ENV=development BABEL_ENV=development webpack serve --config webpack/webpack.config.ts",
     "lint:base": "eslint --ext js,jsx,ts,tsx --quiet",
     "lint:base:warnings": "eslint --ext js,jsx,ts,tsx",
     "lint": "npm run lint:base -- ./src",

@@ -72,6 +72,7 @@ export default () => {
     entry: path.resolve(process.cwd(), 'src/index.tsx'),
     devServer: isDev ? {
         host: HOST || '0.0.0.0',
+        historyApiFallback: true,
         hot: FAST_REFRESH,
         open: (
           OPEN_BROWSER

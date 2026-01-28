@@ -2,10 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch, useHistory } from 'react-router';
 
-import { Lk } from './Lk';
-import { Registration } from './Registration';
 import { UserStatus } from '../api/fetchUserStatus';
-import { LK_URL, REGISTRATION_URL } from '../constants/urls';
+import { LK_URL, REGISTRATION_INTRO_URL, REGISTRATION_URL } from '../constants/urls';
 import {
   getIsLoadingLogout,
   getIsLoadingUserStatus,
@@ -13,6 +11,9 @@ import {
   loadUserStatusAction,
   logoutUserAction,
 } from '../store/user';
+
+import { Lk } from './Lk';
+import { Registration } from './Registration';
 
 export const MainPage = () => {
   const history = useHistory();
@@ -28,7 +29,7 @@ export const MainPage = () => {
 
   useEffect(() => {
     if (userStatus === UserStatus.NOT_REGISTERED) {
-      history.push(REGISTRATION_URL);
+      history.push(REGISTRATION_INTRO_URL);
     } else if (userStatus === UserStatus.REGISTERED) {
       history.push(LK_URL);
     }
@@ -46,9 +47,6 @@ export const MainPage = () => {
         onClick={handleLogout}
       >
         Logout
-      </button>
-      <button type="button" onClick={() => dispatch(loadUserStatusAction())}>
-        Refresh user status
       </button>
       <br />
       {isLoadingUserStatus && (
