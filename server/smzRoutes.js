@@ -176,4 +176,10 @@ smzRouter.get('/private/lk-data', (req, res) => {
   }, 1000);
 });
 
+smzRouter.post('/private/check', (req, res) => {
+  setTimeout(() => {
+    res.sendStatus(200);
+  }, 1000);
+});
+
 module.exports = smzRouter;

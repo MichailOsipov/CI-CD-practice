@@ -3,7 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch, useHistory } from 'react-router';
 
 import { UserStatus } from '../api/fetchUserStatus';
-import { LK_URL, REGISTRATION_INTRO_URL, REGISTRATION_URL } from '../constants/urls';
+import {
+  LK_URL,
+  NEW_CHECK_URL,
+  REGISTRATION_INTRO_URL,
+  REGISTRATION_URL,
+} from '../constants/urls';
 import {
   getIsLoadingLogout,
   getIsLoadingUserStatus,
@@ -13,6 +18,7 @@ import {
 } from '../store/user';
 
 import { Lk } from './Lk';
+import { NewCheck } from './NewCheck';
 import { Registration } from './Registration';
 
 export const MainPage = () => {
@@ -59,6 +65,9 @@ export const MainPage = () => {
           </Route>
           <Route path={LK_URL}>
             <Lk />
+          </Route>
+          <Route path={NEW_CHECK_URL}>
+            <NewCheck />
           </Route>
         </Switch>
       )}

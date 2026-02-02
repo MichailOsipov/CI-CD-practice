@@ -5,3 +5,4 @@ export const REGISTRATION_SMS_CONFIRMATION_URL = `${REGISTRATION_URL}/sms-confir
 export const REGISTRATION_COMPLETED_URL = `${REGISTRATION_URL}/completed`;
 
 export const LK_URL = '/lk';
+export const NEW_CHECK_URL = '/new-check';

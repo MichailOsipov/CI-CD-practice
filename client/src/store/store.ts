@@ -33,7 +33,3 @@ export type RootState = ReturnType<typeof store.getState>;
 export type GetState = () => RootState;
 export type AppDispatch = typeof store.dispatch;
 export type AppThunk = ThunkAction<void, RootState, unknown, Action>;
-
-// 8. убрать коллбеки в сагах и делаем так что регистрация сага дергает сагу смс и слушает ее 
-// 7. навешиваем react-hook-forms
-// 8. add ts to server

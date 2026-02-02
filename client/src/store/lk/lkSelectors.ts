@@ -25,3 +25,8 @@ export const getLkInfo = createSelector(
     taxes, income,
   }),
 );
+
+export const getIsLoadingSaveCheck = createSelector(
+  getLkState,
+  state => state.isLoadingSaveCheck,
+);
