@@ -5,6 +5,8 @@ import { useHistory } from 'react-router';
 import { NEW_CHECK_URL } from '../constants/urls';
 import { getIsLoadingLkData, getLkInfo, initLoadLkDataAction } from '../store/lk';
 
+import { ProviderExample } from './ProviderExample';
+
 export const Lk = () => {
   const history = useHistory();
 
@@ -33,6 +35,7 @@ export const Lk = () => {
       Income: {lkInfo.income}
       <br />
       <button type="button" onClick={goToNewCheck}>Create new check</button>
+      <ProviderExample />
     </div>
   );
 };
