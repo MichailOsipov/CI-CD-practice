@@ -1,51 +1,43 @@
-import { useState } from 'react';
-import * as React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import styles from './App.css';
+import { Login } from './pages/Login';
+import { MainPage } from './pages/MainPage';
+import { getIsAuthorized, initUserSessionAction } from './store/user';
+import { getIsUserSessionInitiated } from './store/user/userSelectors';
+
+// import { RequestExample } from './pages/RequestExample';
+// import { SagaExample } from './pages/SagaExample';
+// import { ThunkExample } from './pages/ThunkExample';
 
 export const App = () => {
-  const [newCatValue, setNewCatValue] = useState('');
-  const [cats, setCats] = useState([]);
+  const dispatch = useDispatch();
+  const isAuthorized = useSelector(getIsAuthorized);
 
-  const loadCats = () => {
-    fetch('/api/cats', { method: 'GET' })
-      .then(data => data.json())
-      .then(data => {
-        setCats(data.cats);
-      });
-  };
+  const isUserSessionInitiated = useSelector(getIsUserSessionInitiated);
 
-  const addCat = () => {
-    fetch('/api/cat', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ cat: newCatValue }),
-    })
-      .then(() => {
-        setNewCatValue('');
-        loadCats();
-      });
-  };
+  useEffect(() => {
+    dispatch(initUserSessionAction());
+  }, [dispatch]);
+
+  if (!isUserSessionInitiated) {
+    return (
+      <div>Preparing user session</div>
+    );
+  }
+
+  if (!isAuthorized) {
+    return (
+      <Login />
+    );
+  }
 
   return (
-    <div>
-      App
-      New cat:
-      <input
-        value={newCatValue}
-        onChange={e => setNewCatValue(e.target.value)}
-      />
-      <br />
-      <button type="button" onClick={addCat}>Add Cat</button>
-      {cats.map((cat, i) => (
-        <div key={i}>
-          <span className={styles.title}>
-            {cat}
-          </span>
-        </div>
-      ))}
-    </div>
+    <>
+      {/* <RequestExample /> */}
+      {/* <ThunkExample /> */}
+      {/* <SagaExample /> */}
+      <MainPage />
+    </>
   );
 };
