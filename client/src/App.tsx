@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Login } from './pages/Login';
 import { MainPage } from './pages/MainPage';
-import { Offline } from './pages/Offline';
+// import { Offline } from './pages/Offline';
+import { RequestExample } from './pages/RequestExample';
+import { SagaExample } from './pages/SagaExample';
+import { ThunkExample } from './pages/ThunkExample';
 import { getIsAuthorized, initUserSessionAction } from './store/user';
 import { getIsUserSessionInitiated } from './store/user/userSelectors';
-
-// import { RequestExample } from './pages/RequestExample';
-// import { SagaExample } from './pages/SagaExample';
-// import { ThunkExample } from './pages/ThunkExample';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -27,13 +26,13 @@ export const App = () => {
     );
   }
 
-  return (
-    <Offline>
-      <div>
-        Some content on the page
-      </div>
-    </Offline>
-  );
+  // return (
+  //   <Offline>
+  //     <div>
+  //       Some content on the page
+  //     </div>
+  //   </Offline>
+  // );
 
   if (!isAuthorized) {
     return (
@@ -43,9 +42,9 @@ export const App = () => {
 
   return (
     <>
-      {/* <RequestExample /> */}
-      {/* <ThunkExample /> */}
-      {/* <SagaExample /> */}
+      <RequestExample />
+      <ThunkExample />
+      <SagaExample />
       <MainPage />
     </>
   );

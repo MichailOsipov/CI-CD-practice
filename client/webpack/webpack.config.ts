@@ -78,10 +78,10 @@ export default () => {
     devServer: isDev ? {
         host: HOST || '0.0.0.0',
         historyApiFallback: true,
-        // hot: FAST_REFRESH,
-        hot: false,
-        webSocketServer: false,
-        liveReload: false,
+        hot: FAST_REFRESH,
+        // hot: false,
+        // webSocketServer: false,
+        // liveReload: false,
         open: (
           OPEN_BROWSER
             ? {
