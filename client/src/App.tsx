@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Login } from './pages/Login';
 import { MainPage } from './pages/MainPage';
+import { Offline } from './pages/Offline';
 import { getIsAuthorized, initUserSessionAction } from './store/user';
 import { getIsUserSessionInitiated } from './store/user/userSelectors';
 
@@ -25,6 +26,14 @@ export const App = () => {
       <div>Preparing user session</div>
     );
   }
+
+  return (
+    <Offline>
+      <div>
+        Some content on the page
+      </div>
+    </Offline>
+  );
 
   if (!isAuthorized) {
     return (

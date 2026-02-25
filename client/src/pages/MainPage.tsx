@@ -58,7 +58,7 @@ export const MainPage = () => {
       {isLoadingUserStatus && (
         <div>Loading user status...</div>
       )}
-      {!isLoadingUserStatus && userStatus !== UserStatus.UNKNOWN && (
+      {(!isLoadingUserStatus || userStatus !== UserStatus.UNKNOWN) && (
         <Switch>
           <Route path={REGISTRATION_URL}>
             <Registration />

@@ -32,10 +32,12 @@ const htmlWebpackPluginProd = {
     removeStyleLinkTypeAttributes: true,
     useShortDoctype: true,
   },
-  template: path.resolve(process.cwd(), 'src/prod.html'),
+  template: path.resolve(process.cwd(), 'src/dev.html'),
 };
 
 const CONTENT_HASH = '.[contenthash:8]';
+
+const serviceWorkerName = 'serviceWorker';
 
 export default () => {
   const mode = process.env.NODE_ENV || 'development';
@@ -69,11 +71,17 @@ export default () => {
         ? 'cheap-module-source-map'
         : false
     ),
-    entry: path.resolve(process.cwd(), 'src/index.tsx'),
+    entry: {
+      app: path.resolve(process.cwd(), 'src/index.tsx'),
+      serviceWorker: path.resolve(process.cwd(), `src/serviceWorker/${serviceWorkerName}.js`),
+    },
     devServer: isDev ? {
         host: HOST || '0.0.0.0',
         historyApiFallback: true,
-        hot: FAST_REFRESH,
+        // hot: FAST_REFRESH,
+        hot: false,
+        webSocketServer: false,
+        liveReload: false,
         open: (
           OPEN_BROWSER
             ? {
@@ -96,10 +104,12 @@ export default () => {
         }
     } : undefined,
     output: {
-      assetModuleFilename: `static/media/[name]${CONTENT_HASH}[ext]`,
-      chunkFilename: `static/js/[name]${!isDev ? `${CONTENT_HASH}` : ''}.js`,
+      assetModuleFilename: `media/[name]${CONTENT_HASH}[ext]`,
+      chunkFilename: `[name]${true? `${CONTENT_HASH}` : ''}.js`,
       clean: true,
-      filename: `static/js/[name]${!isDev ? `${CONTENT_HASH}` : ''}.js`,
+      filename: (pathData: { chunk?: { name?: string; }}) => {
+        return `[name]${ pathData.chunk?.name !== serviceWorkerName ? `${CONTENT_HASH}` : ''}.js`;
+      },
       path: path.resolve(process.cwd(), 'build'),
       publicPath: 'auto',
     },
@@ -149,7 +159,7 @@ export default () => {
       },
     },
     resolve: {
-      extensions: ['.ts', '.js', '.tsx', '.json'], // js ??
+      extensions: ['.ts', '.js', '.tsx', '.json'],
       alias: {},
     },
     module: {
@@ -186,7 +196,7 @@ export default () => {
                 {
                   loader: 'file-loader',
                   options: {
-                    name: 'static/media/[name].[contenthash:8].[ext]',
+                    name: 'media/[name].[contenthash:8].[ext]',
                   },
                 },
               ],
@@ -236,6 +246,9 @@ export default () => {
       }),
       !isDev && new MiniCssExtractPlugin(),
     ].filter(Boolean),
+    stats: {
+      children: true,
+    }
   };
 };
 

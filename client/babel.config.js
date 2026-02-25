@@ -24,14 +24,7 @@ module.exports = {
   ],
   plugins: [
     [
-      '@babel/plugin-transform-runtime',
-      {
-        corejs: {
-          version: 3,
-          proposals: true,
-        },
-        version: dependencies['@babel/runtime-corejs3'],
-      },
+      '@babel/plugin-syntax-import-meta'
     ],
     /** Нужен для работы styled-components/macro */
     // 'babel-plugin-macros',
