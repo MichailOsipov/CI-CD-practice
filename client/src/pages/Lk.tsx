@@ -5,7 +5,9 @@ import { useHistory } from 'react-router';
 import { NEW_CHECK_URL } from '../constants/urls';
 import { getIsLoadingLkData, getLkInfo, initLoadLkDataAction } from '../store/lk';
 
-import { ProviderExample } from './ProviderExample';
+// import { ProviderExample } from './ProviderExample';
+// import { SharedWorkerExample } from './SharedWorkerExample';
+// import { WorkerExample } from './WorkerExample';
 
 export const Lk = () => {
   const history = useHistory();
@@ -35,7 +37,9 @@ export const Lk = () => {
       Income: {lkInfo.income}
       <br />
       <button type="button" onClick={goToNewCheck}>Create new check</button>
-      <ProviderExample />
+      {/* <ProviderExample /> */}
+      {/* <WorkerExample /> */}
+      {/* <SharedWorkerExample /> */}
     </div>
   );
 };

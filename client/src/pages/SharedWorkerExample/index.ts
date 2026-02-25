@@ -1,0 +1,1 @@
+export { SharedWorkerExample } from './SharedWorkerExample';
