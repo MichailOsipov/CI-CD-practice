@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { ThemeProvider } from './components/ThemeProvider';
 import { Login } from './pages/Login';
 import { MainPage } from './pages/MainPage';
 // import { Offline } from './pages/Offline';
@@ -41,11 +42,11 @@ export const App = () => {
   }
 
   return (
-    <>
+    <ThemeProvider>
       <RequestExample />
       <ThunkExample />
       <SagaExample />
       <MainPage />
-    </>
+    </ThemeProvider>
   );
 };

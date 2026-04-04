@@ -2,12 +2,15 @@ import React, { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Button } from '../components/Button';
+import { Typography } from '../components/Typography';
 import {
   composeValidators,
   InputField,
   requiredValidator,
   textIncludesLettersAndDigitsOnlyValidator,
 } from '../components/fields';
+import { LayoutPage, LayoutSection } from '../components/layout';
 import { getIsLoadingAuthorization, loginUserAction } from '../store/user';
 
 const DEFAULT_LOGIN_FORM_VALUES = {
@@ -41,21 +44,31 @@ export const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Login</h1>
-      <InputField
-        label="Your login:"
-        name="login"
-        control={control}
-        validate={loginValidator}
-      />
-      <br />
-      <button
-        type="submit"
-        disabled={isLoadingAuthorization}
-      >
-        Login
-      </button>
-    </form>
+    <LayoutPage>
+      <LayoutSection>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Typography
+            className="text-center text-sky-700"
+            tag="h1"
+            size="3xl"
+          >
+            Login
+          </Typography>
+          <InputField
+            label="Your login:"
+            name="login"
+            control={control}
+            validate={loginValidator}
+          />
+          <br />
+          <Button
+            type="submit"
+            disabled={isLoadingAuthorization}
+          >
+            Login
+          </Button>
+        </form>
+      </LayoutSection>
+    </LayoutPage>
   );
 };

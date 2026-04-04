@@ -222,7 +222,7 @@ export default () => {
                   options: {
                     importLoaders: 1,
                     sourceMap: true,
-                    modules: true
+                    // modules: true
                   },
                 },
               ],
