@@ -1,0 +1,33 @@
+@import 'tailwindcss';
+
+@layer components {
+  .typography-text-xsmall {
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-light);
+    line-height: var(--text-xs);
+  }
+
+  .typography-text-small {
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--text-sm);
+  }
+
+  .typography-text-base {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--text-base);
+  }
+
+  .typography-text-large {
+    font-size: var(--text-large);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--text-large);
+  }
+
+  .typography-text-3xl {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--text-3xl);
+  }
+}

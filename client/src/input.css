@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+
+@layer base {
+  .light {
+    --page-background-color: var(--color-sky-50);
+
+    --layout-section-background-color: var(--color-sky-100);
+    --layout-section-border-color: var(--color-sky-400);
+
+    --button-primary-background-color: var(--color-sky-400);
+    --button-primary-background-hover-color: var(--color-sky-500);
+    --button-primary-text-color: var(--color-sky-50);
+
+    --text-main-color: var(--color-sky-400);
+    --text-secondary-color: var(--color-sky-500);
+  }
+
+  .dark {
+    --page-background-color: var(--color-sky-900);
+
+    --layout-section-background-color: var(--color-sky-800);
+    --layout-section-border-color: var(--color-sky-500);
+
+    --button-primary-background-color: var(--color-sky-400);
+    --button-primary-background-hover-color: var(--color-sky-300);
+    --button-primary-text-color: var(--color-sky-900);
+
+    --text-main-color: var(--color-sky-200);
+    --text-secondary-color: var(--color-sky-100);
+  }
+
+  .spring {
+    --page-background-color: var(--color-lime-50);
+
+    --layout-section-background-color: var(--color-lime-100);
+    --layout-section-border-color: var(--color-lime-400);
+
+    --button-primary-background-color: var(--color-lime-400);
+    --button-primary-background-hover-color: var(--color-lime-500);
+    --button-primary-text-color: var(--color-lime-50);
+
+    --text-main-color: var(--color-lime-400);
+    --text-secondary-color: var(--color-lime-500);
+  }
+}
+
+@theme {
+  --color-page-background: var(--page-background-color);
+
+  --color-layout-section-background: var(--layout-section-background-color);
+  --color-layout-section-border-color: var(--layout-section-border-color);
+
+  --color-button-primary-background: var(--button-primary-background-color);
+  --color-button-primary-hover-background: var(--button-primary-background-hover-color);
+  --color-button-primary-text-color: var(--button-primary-text-color);
+
+  --color-text-main-color: var(--text-main-color);
+  --color-text-secondary-color: var(--text-secondary-color);
+}

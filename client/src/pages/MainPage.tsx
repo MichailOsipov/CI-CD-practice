@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch, useHistory } from 'react-router';
 
 import { UserStatus } from '../api/fetchUserStatus';
+import { Header } from '../components/Header';
+import { LayoutPage } from '../components/layout';
 import {
   LK_URL,
   NEW_CHECK_URL,
@@ -47,18 +49,14 @@ export const MainPage = () => {
 
   return (
     <>
-      <button
-        type="button"
-        disabled={isLoadingLogout}
-        onClick={handleLogout}
-      >
-        Logout
-      </button>
-      <br />
+      <Header
+        isLoadingLogout={isLoadingLogout}
+        onLogout={handleLogout}
+      />
       {isLoadingUserStatus && (
-        <div>Loading user status...</div>
+        <LayoutPage>Loading user status...</LayoutPage>
       )}
-      {(!isLoadingUserStatus || userStatus !== UserStatus.UNKNOWN) && (
+      {(!isLoadingUserStatus && userStatus !== UserStatus.UNKNOWN) && (
         <Switch>
           <Route path={REGISTRATION_URL}>
             <Registration />
